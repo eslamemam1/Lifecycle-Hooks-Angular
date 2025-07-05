@@ -1,0 +1,23 @@
+<nav class="bg-gray-800 px-4 py-3">
+  <ul class="flex gap-4">
+    <li>
+      <a
+        routerLink="/"
+        [routerLinkActive]="'text-white bg-blue-600 rounded px-3 py-2'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded transition"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/about"
+        [routerLinkActive]="'text-white bg-blue-600 rounded px-3 py-2'"
+        class="text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded transition"
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</nav>
