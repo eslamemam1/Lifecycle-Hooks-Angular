@@ -8,7 +8,7 @@ import { Chiled } from '../chiled/chiled';
   styleUrl: './home.css',
 })
 export class Home {
-  name: string = 'Angular';
+  name: string = 'Angular 2';
 
   // This method is called when the button is clicked
   onClick(): void {

@@ -8,6 +8,12 @@
     This is the home page of your Angular app. Use the navigation bar to explore
     different sections like the Child component.
   </p>
+  <button
+    (click)="onClick()"
+    class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+  >
+    Click Me to Update Child Component
+  </button>
 </div>
 
 <app-chiled [name]="name"></app-chiled>
