@@ -1,11 +1,16 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
+  ElementRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -15,12 +20,22 @@ import {
   styleUrl: './chiled.css',
 })
 export class Chiled
-  implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy
 {
   constructor() {
     console.log('constructor inslized');
   }
   @Input() name: string = '';
+
+  @ViewChild('p') parag!: ElementRef;
 
   ngOnInit(): void {
     console.log('ngOnInit inslized');
@@ -45,5 +60,22 @@ export class Chiled
     //Called after every check of the component's or directive's content.
     //Add 'implements AfterContentChecked' to the class.
     console.log('ngAfterContentChecked inslized');
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log('ngAfterViewInit inslized');
+    this.parag.nativeElement.style.color = 'red';
+  }
+  ngAfterViewChecked(): void {
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
+    console.log('ngAfterViewChecked inslized');
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed. Use it to clean up subscriptions and detach event handlers to avoid memory leaks.
+    //Add 'implements OnDestroy' to the class.
+    console.log('ngOnDestroy inslized');
+    alert('Chiled component is being destroyed');
   }
 }
