@@ -16,6 +16,6 @@
   </button>
 </div>
 
-<app-chiled [name]="name" *ngIf="number === 1">
-  <p>this is from a ng after content int</p>
+<app-chiled #chiledC [name]="name" *ngIf="number === 1">
+  <p #fromHome>this is from a ng after content int</p>
 </app-chiled>

@@ -4,6 +4,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component,
+  ContentChild,
   DoCheck,
   ElementRef,
   Input,
@@ -34,9 +35,10 @@ export class Chiled
     console.log('constructor inslized');
   }
   @Input() name: string = '';
-
+  @ViewChild('firstP') firstParag!: ElementRef;
   @ViewChild('p') parag!: ElementRef;
-
+  @ViewChild('lastP') lastParag!: ElementRef;
+  @ContentChild('fromHome', { static: true }) fromHome!: ElementRef;
   ngOnInit(): void {
     console.log('ngOnInit inslized');
     //console.log('Chiled component initialized with name:', this.name);
@@ -55,6 +57,7 @@ export class Chiled
     //Called after ngOnInit when the component's or directive's content has been initialized.
     //Add 'implements AfterContentInit' to the class.
     console.log('ngAfterContentInit inslized');
+    console.log(this.fromHome, 'from home');
   }
   ngAfterContentChecked(): void {
     //Called after every check of the component's or directive's content.
@@ -66,6 +69,7 @@ export class Chiled
     //Add 'implements AfterViewInit' to the class.
     console.log('ngAfterViewInit inslized');
     this.parag.nativeElement.style.color = 'red';
+    console.log(this.firstParag.nativeElement);
   }
   ngAfterViewChecked(): void {
     //Called after every check of the component's view. Applies to components only.
